@@ -1,0 +1,9 @@
+a {
+  text-decoration: none;
+  color: gray;
+}
+.home__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}

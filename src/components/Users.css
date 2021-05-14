@@ -1,0 +1,26 @@
+.users__wrapper {
+  width: 20%;
+  margin: auto;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+@media screen and (max-width: 1020px) {
+  .users__wrapper {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .users__wrapper {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .users__wrapper {
+    width: 90%;
+  }
+}
