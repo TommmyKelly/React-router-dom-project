@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import Home from "./Screens/Home";
 import User from "./Screens/User";
+import Nav from "./components/Nav";
+import NotFound from "./components/NotFound";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -18,8 +20,6 @@ function App() {
     try {
       const res = await axios.get("https://dummyapi.io/data/api/user");
 
-      console.log(res.data.data);
-
       setUsers(res.data.data);
     } catch (error) {
       console.log(error.message);
@@ -29,6 +29,7 @@ function App() {
   return (
     <div className='App'>
       <Router>
+        <Nav />
         <div className='container'>
           <Switch>
             <Route
@@ -37,6 +38,7 @@ function App() {
               render={(props) => <Home {...props} users={users} />}
             />
             <Route path='/user/:id' component={User} />
+            <Route path='' component={NotFound} />
           </Switch>
         </div>
       </Router>

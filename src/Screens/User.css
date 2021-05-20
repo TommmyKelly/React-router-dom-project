@@ -2,6 +2,7 @@
   margin-top: 20px;
   display: flex;
   height: max-content;
+  height: max-content;
 }
 
 .user__left {
@@ -23,15 +24,30 @@
   width: 100%;
 }
 
-@media screen and (max-width: 500px) {
+.gmap_canvas {
+  height: 100%;
+}
+
+.gmap_canvas iframe {
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
   .user__container {
     flex-direction: column;
     text-align: center;
+    width: 80%;
+    margin: auto;
   }
   .user__left {
     margin-right: 0;
   }
   .user__left img {
     margin: 0;
+  }
+
+  .gmap_canvas iframe {
+    height: 400px;
   }
 }
