@@ -1,7 +1,26 @@
 import "./Nav.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
+
 const Nav = () => {
   const location = useLocation();
+  const history = useHistory();
+
+  const backButton = () => {
+    if (
+      location.pathname.substring(0, 5) === "/user" ||
+      location.pathname.substring(0, 6) === "/about"
+    ) {
+      return (
+        <span>
+          {" | "}
+          <Link onClick={() => history.goBack()} to='#'>
+            Back
+          </Link>
+        </span>
+      );
+    }
+  };
 
   return (
     <nav
@@ -19,6 +38,7 @@ const Nav = () => {
         </div>
         <div className='right'>
           <Link to='/about'>About</Link>
+          {backButton()}
         </div>
       </div>
     </nav>

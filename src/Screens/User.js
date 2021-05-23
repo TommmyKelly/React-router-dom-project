@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { getDate, getLink } from "../utils";
+import Spinner from "../components/Spinner";
 import "./User.css";
 
 const User = ({ match }) => {
@@ -60,7 +61,7 @@ const User = ({ match }) => {
           </div>
         </div>
       ) : (
-        "loading..."
+        <Spinner />
       )}
     </>
   );

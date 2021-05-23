@@ -5,9 +5,11 @@ import Home from "./Screens/Home";
 import User from "./Screens/User";
 import Nav from "./components/Nav";
 import NotFound from "./components/NotFound";
+import About from "./Screens/About";
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
   const APP_ID = process.env.REACT_APP_API_KEY;
 
   axios.defaults.headers.common["app-id"] = APP_ID;
@@ -35,9 +37,17 @@ function App() {
             <Route
               exact
               path='/'
-              render={(props) => <Home {...props} users={users} />}
+              render={(props) => (
+                <Home
+                  {...props}
+                  users={users}
+                  setLoading={setLoading}
+                  loading={loading}
+                />
+              )}
             />
             <Route path='/user/:id' component={User} />
+            <Route path='/about' component={About} />
             <Route path='' component={NotFound} />
           </Switch>
         </div>
