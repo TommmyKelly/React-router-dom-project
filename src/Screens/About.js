@@ -7,9 +7,6 @@ const About = () => {
 };
 
 const center = {
-  //   display: "flex",
-  //   alignItems: "center",
-  //   justifyContent: "center",
   height: "50vh",
   width: "100%",
   display: "grid",

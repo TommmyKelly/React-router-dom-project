@@ -9,7 +9,7 @@ const User = ({ match }) => {
   const [user, setUser] = useState([]);
   useEffect(() => {
     axios
-      .get(`https://dummyapi.io/data/api/user/${match.params.id}`)
+      .get(`https://dummyapi.io/data/v1/user/${match.params.id}`)
       .then((res) => {
         setUser(res.data);
         setLoading(false);
@@ -38,13 +38,9 @@ const User = ({ match }) => {
           </div>
 
           <div className='mapouter user__right'>
-            {/* <h3>{user.location.city}</h3>
-            <h3>{user.location.city}</h3>
-            <h3>{user.location.city}</h3> */}
             <div className='gmap_canvas'>
               <iframe
                 title='map'
-                // style={{ width: "100%", height: "100%" }}
                 id='gmap_canvas'
                 src={`https://maps.google.com/maps?q=${getLink(
                   user.location.city

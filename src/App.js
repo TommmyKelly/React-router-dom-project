@@ -10,17 +10,16 @@ import About from "./Screens/About";
 function App() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const APP_ID = process.env.REACT_APP_API_KEY;
-
-  axios.defaults.headers.common["app-id"] = APP_ID;
 
   useEffect(() => {
+    const APP_ID = process.env.REACT_APP_API_KEY;
+    axios.defaults.headers.common["app-id"] = APP_ID;
     getUsers();
   }, []);
 
   const getUsers = async () => {
     try {
-      const res = await axios.get("https://dummyapi.io/data/api/user");
+      const res = await axios.get("https://dummyapi.io/data/v1/user");
 
       setUsers(res.data.data);
     } catch (error) {
